@@ -7,14 +7,14 @@ import sys
 import pycurl
 reload(sys)
 sys.setdefaultencoding( "utf-8" )
-URL="http://cm12.c110.storage.bokecc.com/crossdomain.xml"
+URL="http://k.youku.com/crossdomain.xml"
 c = pycurl.Curl()
 c.setopt(pycurl.URL, URL)
                 
-#Á¬½Ó³¬Ê±Ê±¼ä,5Ãë
+#è¿æ¥è¶…æ—¶æ—¶é—´,5ç§’
 c.setopt(pycurl.CONNECTTIMEOUT, 5)
 
-#ÏÂÔØ³¬Ê±Ê±¼ä,5Ãë
+#ä¸‹è½½è¶…æ—¶æ—¶é—´,5ç§’
 c.setopt(pycurl.TIMEOUT, 5)
 c.setopt(pycurl.FORBID_REUSE, 1)
 c.setopt(pycurl.MAXREDIRS, 1)
@@ -41,17 +41,17 @@ SIZE_DOWNLOAD =  c.getinfo(c.SIZE_DOWNLOAD)
 HEADER_SIZE = c.getinfo(c.HEADER_SIZE)
 SPEED_DOWNLOAD=c.getinfo(c.SPEED_DOWNLOAD)
 
-print "HTTP×´Ì¬Âë£º%s" %(HTTP_CODE)
-print "DNS½âÎöÊ±¼ä£º%.2f ms"%(NAMELOOKUP_TIME*1000)
-print "½¨Á¢Á¬½ÓÊ±¼ä£º%.2f ms" %(CONNECT_TIME*1000)
-print "×¼±¸´«ÊäÊ±¼ä£º%.2f ms" %(PRETRANSFER_TIME*1000)
-print "´«Êä¿ªÊ¼Ê±¼ä£º%.2f ms" %(STARTTRANSFER_TIME*1000)
-print "´«Êä½áÊø×ÜÊ±¼ä£º%.2f ms" %(TOTAL_TIME*1000)
+print "HTTPçŠ¶æ€ç ï¼š%s" %(HTTP_CODE)
+print "DNSè§£ææ—¶é—´ï¼š%.2f ms"%(NAMELOOKUP_TIME*1000)
+print "å»ºç«‹è¿æ¥æ—¶é—´ï¼š%.2f ms" %(CONNECT_TIME*1000)
+print "å‡†å¤‡ä¼ è¾“æ—¶é—´ï¼š%.2f ms" %(PRETRANSFER_TIME*1000)
+print "ä¼ è¾“å¼€å§‹æ—¶é—´ï¼š%.2f ms" %(STARTTRANSFER_TIME*1000)
+print "ä¼ è¾“ç»“æŸæ€»æ—¶é—´ï¼š%.2f ms" %(TOTAL_TIME*1000)
 
-print "ÏÂÔØÊı¾İ°ü´óĞ¡£º%d bytes/s" %(SIZE_DOWNLOAD)
-print "HTTPÍ·²¿´óĞ¡£º%d byte" %(HEADER_SIZE)
-print "Æ½¾ùÏÂÔØËÙ¶È£º%d bytes/s" %(SPEED_DOWNLOAD)
+print "ä¸‹è½½æ•°æ®åŒ…å¤§å°ï¼š%d bytes/s" %(SIZE_DOWNLOAD)
+print "HTTPå¤´éƒ¨å¤§å°ï¼š%d byte" %(HEADER_SIZE)
+print "å¹³å‡ä¸‹è½½é€Ÿåº¦ï¼š%d bytes/s" %(SPEED_DOWNLOAD)
 
 indexfile.close()
 c.close()
-print "Æ½¾ù"
+print "å¹³å‡"
